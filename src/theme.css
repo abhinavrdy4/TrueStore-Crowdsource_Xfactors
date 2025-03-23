@@ -1,0 +1,77 @@
+/* theme.css */
+
+/* Define some theme variables */
+:root {
+    --primary-color: #1976d2;
+    --primary-light: #63a4ff;
+    --primary-dark: #004ba0;
+    --secondary-color: #dc004e;
+    --background-color: #f5f5f5;
+    --text-color: #333;
+    --border-radius: 4px;
+    --font-family: 'Roboto', sans-serif;
+  }
+  
+  /* Global styles */
+  body {
+    margin: 0;
+    padding: 0;
+    font-family: var(--font-family);
+    background-color: var(--background-color);
+    color: var(--text-color);
+  }
+  
+  /* Container style */
+  .container {
+    max-width: 800px;
+    margin: 20px auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: var(--border-radius);
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Headings */
+  h2, h3 {
+    color: var(--primary-dark);
+  }
+  
+  /* Buttons */
+  button {
+    background-color: var(--primary-color);
+    color: #fff;
+    border: none;
+    border-radius: var(--border-radius);
+    padding: 10px 16px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s ease;
+  }
+  
+  button:hover {
+    background-color: var(--primary-light);
+  }
+  
+  /* For secondary actions (like Disagree) */
+  button.secondary {
+    background-color: var(--secondary-color);
+  }
+  
+  button.secondary:hover {
+    background-color: #c40043;
+  }
+  
+  /* Media grid styling */
+  .media-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+  }
+  
+  .media-grid div {
+    border: 1px solid #ccc;
+    padding: 5px;
+    border-radius: var(--border-radius);
+  }
+  

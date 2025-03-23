@@ -1,0 +1,47 @@
+/* src/Components/MainMenu.css */
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 50px;
+    padding: 20px;
+  }
+  
+  h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
+  
+  button {
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #f44336;
+    color: #fff;
+    transition: background-color 0.3s ease;
+    display: flex;
+    min-width: 250px; /* ensures a minimum width for readability */
+    margin: 10px;
+    align-content: center;
+  }
+  
+  button:hover {
+    background-color: #d32f2f;
+  }
+  
+
+  .button-container {
+    display: flex;
+    justify-content: space-evenly; /* you can also try space-between or space-around */
+    flex-wrap: wrap;
+    gap: 10px; /* adds a little gap between buttons */
+    margin: 20px 0;
+  }
+
+  .button-container button {
+    flex: 1; /* optionally make them all equal width */
+    min-width: 150px; /* ensures a minimum width for readability */
+    margin: 0 5px;
+  }
