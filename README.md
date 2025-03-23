@@ -1,5 +1,6 @@
 ﻿# TrueStore-Crowdsource_Xfactors
 Web app: https://crowdsource-b266e.web.app
+Blockchain backend: https://testingfront-kqrgndany-satviks-projects-2883dc5b.vercel.app/
 
 We are currently facing a problem while integrating the blockchain-based backend running on one laptop with the UI frontend on another laptop. Both components function perfectly when run independently, but we are unable to establish a successful connection between them. We are working on resolving this issue and will update the documentation once a solution is found.
 
