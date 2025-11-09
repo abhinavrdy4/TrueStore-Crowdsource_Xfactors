@@ -1,213 +1,213 @@
-﻿# TrueStore-Crowdsource_Xfactors
-Web app: https://crowdsource-b266e.web.app
 
-Blockchain backend: https://testingfront-kqrgndany-satviks-projects-2883dc5b.vercel.app/
+# TrueStore Crowdsource Xfactors
 
-We are currently facing a problem while integrating the blockchain-based backend running on one laptop with the UI frontend on another laptop. Both components function perfectly when run independently, but we are unable to establish a successful connection between them. We are working on resolving this issue and will update the documentation once a solution is found.
+###  Web Application  
+**Frontend:** [crowdsource-b266e.web.app](https://crowdsource-b266e.web.app)  
+**Blockchain Backend:** [testingfront-kqrgndany-satviks-projects-2883dc5b.vercel.app](https://testingfront-kqrgndany-satviks-projects-2883dc5b.vercel.app)
 
+---
 
-Private Blockchain Ledger & File Hashing Project
-This project is a demonstration of a private blockchain-inspired ledger that tracks fake currency balances and logs user transactions along with file attachments. It consists of two main parts:
+##  Current Status
+We are currently troubleshooting an issue where the blockchain-based backend (running on one machine) cannot communicate with the frontend hosted on another.  
+Both the backend and frontend work independently without issues. Documentation will be updated once this integration problem is resolved.
 
-Backend (Node.js):
-A Node.js server implements blockchain logic (blocks, transactions, mining) to manage user balances. It also computes SHA-256 file hashes for uploaded attachments and stores the data in Firestore and Firebase Storage.
+---
 
-Frontend (React):
-A React app provides a user interface for capturing media (photos and videos), submitting a form (with attachments), and viewing submission history. It also includes accessibility features and a modern theme.
+##  Project Overview
+This project demonstrates a **private blockchain-inspired ledger** that tracks *fake currency balances* and logs *user transactions with file attachments*.
 
-Table of Contents
-Features
+### Core Components
+- **Backend (Node.js):** Implements blockchain logic, transaction handling, and file hashing.  
+- **Frontend (React):** Provides the user interface for submission, media capture, and transaction visualization.
 
-Project Overview
+---
 
-Setup Instructions
+## Table of Contents
+1. [Features](#-features)
+2. [Project Overview](#-project-overview)
+3. [Setup Instructions](#-setup-instructions)
+4. [Prerequisites](#-prerequisites)
+5. [Backend Setup](#-backend-setup)
+6. [Frontend Setup](#-frontend-setup)
+7. [Running the Project](#-running-the-project)
+8. [Core Logic](#-core-logic)
+9. [Unit Testing](#-unit-testing)
+10. [Accessibility Considerations](#-accessibility-considerations)
+11. [Additional Features](#-additional-features)
+12. [Deployment](#-deployment)
+13. [License](#-license)
 
-Prerequisites
+---
 
-Backend Setup
+## Features
 
-Frontend Setup
+### Blockchain-Inspired Ledger
+- Simulates blockchain behavior with **blocks** and **transactions**.
+- Tracks **fake currency balances** for users with BITS email addresses.
 
-Running the Project
+### File Hashing
+- Computes **SHA-256 hashes** for uploaded files (photos, videos).
 
-Core Logic
+### Media Capture
+- Supports **photo and video capture** (including mobile back camera).
 
-Unit Testing
+### Secure Transactions
+- Enforces **Firebase Authentication** for authorized BITS users.
 
-Accessibility Considerations
+### User-Friendly Interface
+- Modern **React UI** with ghost text, responsive design, and themed layout.
 
-Additional Features
+---
 
-Deployment
+## Setup Instructions
 
-License
+### Prerequisites
+- Node.js (v14 or higher) & npm  
+- Firebase Project with Firestore, Storage, and Authentication  
+- Google Cloud SDK or **Vercel/Render** account  
+- *(Optional)* Docker for containerized deployments
 
-Features
-Blockchain-Inspired Ledger:
-Implements blocks and transactions to mimic a blockchain. Each transaction updates a fake currency balance for users with Bits email addresses.
+---
 
-File Hashing:
-Computes SHA-256 hashes for all file attachments (photos, videos) during form submission.
+## Backend Setup
 
-Media Capture:
-Supports capturing media via camera (including mobile back camera usage).
+1. **Clone the Repository**  
+   ```bash
+   git clone <repo-url>
+   cd <repo-folder>
+   ```
 
-Secure Transactions:
-Integrates Firebase Authentication to ensure that only authorized Bits email users can submit transactions.
+2. **Navigate to Backend Folder**  
+   ```bash
+   cd server
+   ```
 
-User-Friendly UI:
-Modern themed React interface with ghost text in input fields and responsive design.
+3. **Install Dependencies**  
+   ```bash
+   npm install
+   ```
 
-Project Overview
-The solution addresses the problem of tracking a fake currency balance for users (with Bits email IDs) by creating a centralized ledger that mimics key blockchain properties:
+4. **Configure Firebase Admin**  
+   - Obtain a **service account JSON** file from Firebase Console.  
+   - Update `/server/admin.js` with the credentials and storage bucket.
 
-Immutable Ledger: Transactions are grouped into blocks that are chained together via cryptographic hashes.
+5. **(Optional) Docker Setup**  
+   ```bash
+   docker build -t my-node-server .
+   docker run -p 3001:3001 my-node-server
+   ```
 
-File Integrity: Every uploaded attachment is hashed using SHA-256, ensuring file integrity and traceability.
+---
 
-Secure and Modular: The backend is secured with Firebase Cloud Functions (or Node.js server deployed to Google Cloud Run/Vercel) and the React app communicates over HTTPS.
+## Frontend Setup
 
-Setup Instructions
-Prerequisites
-Node.js and npm: Ensure you have Node.js (v14 or higher) and npm installed.
+1. **Navigate to Frontend Folder**  
+   ```bash
+   cd src
+   ```
 
-Firebase Account: A Firebase project configured with Firestore, Storage, and Authentication.
+2. **Install Dependencies**  
+   ```bash
+   npm install
+   ```
 
-Google Cloud SDK (if deploying to Cloud Run) or Vercel/Render account if deploying there.
+3. **Configure Firebase Client**  
+   Update `/src/firebase-config.js` with your Firebase project settings.
 
-Docker: (Optional) for containerization if deploying to Cloud Run.
+4. **File Hash Utility**  
+   Verify `/src/utils/fileHash.js` includes SHA-256 logic using the Web Crypto API.
 
-Backend Setup
-Clone the Repository:
-Clone this repository and navigate to the project root.
+---
 
-Create the Backend Folder:
-The Node.js server code is located in the /server folder.
+## Running the Project
 
-Install Dependencies:
-In the /server folder, run:
-
-bash
-Copy
-npm install
-Configure Firebase Admin:
-
-Create a service account JSON file from your Firebase Console.
-
-In /server/admin.js, update the configuration to use your service account and set your Storage bucket.
-
-Build the Docker Image (Optional):
-If deploying via Google Cloud Run, create a Dockerfile in /server (see Dockerfile instructions in the docs).
-
-Frontend Setup
-Navigate to the Frontend Folder:
-The React app is in the /src folder (with the root project also containing the typical Create React App structure).
-
-Install Dependencies:
-From the project root, run:
-
-bash
-Copy
-npm install
-Configure Firebase Client:
-Update /src/firebase-config.js with your Firebase project settings.
-
-File Hash Utility:
-Verify that /src/utils/fileHash.js exists and contains the SHA-256 computation logic using Web Crypto.
-
-Running the Project
-Locally (Development)
-Backend:
-In the /server folder, run:
-
-bash
-Copy
+### Development Mode
+**Backend:**  
+```bash
+cd server
 node server.js
-or use Docker (if set up) with:
+```
 
-bash
-Copy
-docker run -p 3001:3001 my-node-server
-Frontend:
-From the project root, run:
-
-bash
-Copy
+**Frontend:**  
+```bash
 npm start
-The React app should launch on http://localhost:3000.
+```
+Frontend will start at [http://localhost:3000](http://localhost:3000)
 
-Production Build
-Frontend:
-Run:
-
-bash
-Copy
+### Production Build
+**Frontend:**  
+```bash
 npm run build
-and deploy the build to your hosting platform.
+```
+Deploy build to Firebase, Vercel, or your hosting service.
 
-Backend Deployment:
-Deploy your Node.js server via your chosen platform (Google Cloud Run, Vercel, Render, or Firebase Cloud Functions). Refer to the deployment instructions in the docs.
+**Backend Deployment:**  
+Use **Google Cloud Run**, **Vercel**, **Render**, or **Firebase Cloud Functions**.
 
-Core Logic
-Blockchain Ledger:
-The backend implements a simple blockchain using a Block class and a Blockchain class. Each block contains an index, timestamp, transactions, previous hash, and its own computed hash (using SHA-256). Transactions update a user's balance (starting from a fixed default) and are grouped into blocks.
+---
 
-File Hashing:
-On form submission, the app computes a SHA-256 hash for each attachment. On the client side, this is done using the Web Crypto API (via computeSHA256 in /src/utils/fileHash.js), and the hash is included in the submission data.
+## Core Logic
 
-Unit Testing
-Backend Tests:
-You can write tests using Jest or Mocha to verify blockchain functions (e.g., block creation, chain validation, transaction processing). For example, create tests for Block.calculateHash() and Blockchain.isChainValid().
+### Blockchain Ledger
+- Implements **Block** and **Blockchain** classes.  
+- Each block includes: index, timestamp, transactions, previous hash, and SHA-256 hash.  
+- User balances are updated per transaction, maintaining immutability.
 
-Frontend Tests:
-Use React Testing Library and Jest to test components like the UploadForm and media preview logic. For instance, tests can check if the placeholder appears and if file hash computation is triggered on file selection.
+### File Hashing
+- Client computes file hashes before submission.  
+- Uses Web Crypto API in `/src/utils/fileHash.js`.
 
-(Note: Unit testing isn’t fully implemented in this version, but you can add tests in a /tests folder for further assurance.)
+---
 
-Accessibility Considerations
-Semantic HTML:
-The project uses proper semantic HTML elements (e.g., <form>, <label>, <textarea>) to ensure screen readers and assistive technologies can interpret the content.
+## Unit Testing
 
-Placeholder Text & Alt Attributes:
-Input fields have ghost text (via placeholder attributes) and images include alt text.
+### Backend
+Use Jest or Mocha to test blockchain logic:  
+- `Block.calculateHash()`  
+- `Blockchain.isChainValid()`
 
-Responsive Design:
-CSS is written to support various screen sizes (desktop and mobile). Color contrast and font sizes are chosen for readability.
+### Frontend
+Use React Testing Library + Jest:  
+- Validate UI elements and hash computation flow.
 
-Additional Features
-Mobile Camera Optimization:
-The enhanced camera components request the mobile back camera using the constraint { facingMode: { ideal: "environment" } }.
+*(Unit tests not fully implemented yet — suggested structure in `/tests` folder.)*
 
-Themed UI:
-A custom CSS theme provides a modern look (with consistent colors, spacing, and typography).
+---
 
-Secure Backend:
-The backend uses Firebase Admin to securely handle file uploads and verifies Firebase ID tokens to ensure that only authorized users can submit transactions.
+## Accessibility Considerations
 
-Deployment Options:
-Detailed instructions are provided for deploying via Google Cloud Run, Vercel, or Firebase Cloud Functions.
+- **Semantic HTML**: Proper use of `<form>`, `<label>`, and `<textarea>` elements.  
+- **Placeholder & Alt Text**: Ensures assistive readability.  
+- **Responsive Design**: Mobile-friendly and high contrast UI.
 
-Deployment
-Google Cloud Run
-Create a Dockerfile in /server (see instructions).
+---
 
-Build and Push the Image:
+## Additional Features
 
-bash
-Copy
+- Optimized **mobile camera** via `{ facingMode: { ideal: "environment" } }`.  
+- Custom **CSS theme** for consistent and modern design.  
+- Backend secured with **Firebase Admin SDK** and token verification.
+
+---
+
+## Deployment Options
+
+### Google Cloud Run
+```bash
 docker build -t gcr.io/YOUR_PROJECT_ID/my-node-server .
 docker push gcr.io/YOUR_PROJECT_ID/my-node-server
-Deploy the Image:
+gcloud run deploy my-node-server   --image gcr.io/YOUR_PROJECT_ID/my-node-server   --platform managed   --region us-central1   --allow-unauthenticated
+```
 
-bash
-Copy
-gcloud run deploy my-node-server \
-  --image gcr.io/YOUR_PROJECT_ID/my-node-server \
-  --platform managed \
-  --region us-central1 \
-  --allow-unauthenticated
-Vercel / Firebase Cloud Functions
-Restructure your endpoints as needed and deploy using the respective CLI tools.
+### Vercel / Firebase Cloud Functions
+- Adjust endpoint structure.
+- Deploy using CLI tools.
 
-License
-Include your license information here (e.g., MIT License).
+---
+
+## License
+Include your license here (e.g., **MIT License**).
+
+---
+
+> © TrueStore Project Team | Blockchain Ledger & File Hashing Demo
